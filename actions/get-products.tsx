@@ -19,17 +19,32 @@ const getProducts = async (query: Query): Promise<Product[]> => {
 
   console.log('Fetching products from URL:', url);
 
-  const res = await fetch(url);
+  try {
+    const res = await fetch(url);
 
-  if (!res.ok) {
-    console.error('Failed to fetch products:', res.statusText);
-    throw new Error('Failed to fetch products');
+    if (!res.ok) {
+      console.error('Failed to fetch products:', res.statusText);
+      throw new Error(`Failed to fetch products: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("Invalid products data format");
+    }
+
+    console.log('Fetched products:', data);
+    return data;
+
+    
+
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
   }
 
-  const data = await res.json();
-  console.log('Fetched products:', data);
-
-  return data;
+  
 };
+
 
 export default getProducts;
