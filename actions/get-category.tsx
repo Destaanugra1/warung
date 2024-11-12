@@ -9,7 +9,6 @@ const getCategory = async (id: string): Promise<Category> => {
     const res = await fetch(url);
 
     if (!res.ok) {
-      console.error('Failed to fetch category:', res.statusText);
       throw new Error(`Failed to fetch category: ${res.status} ${res.statusText}`);
     }
 
@@ -19,11 +18,10 @@ const getCategory = async (id: string): Promise<Category> => {
       throw new Error("Invalid category data format");
     }
 
-    console.log('Fetched category:', data);
+    console.log("Fetched category:", data);
     return data;
-
   } catch (error) {
-    console.error('Error fetching category:', error);
+    console.error("Error in getCategory:", error);
     throw error;
   }
 };

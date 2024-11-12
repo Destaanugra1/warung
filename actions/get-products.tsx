@@ -35,6 +35,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
     console.log("Fetched products:", data);
     return data;
   } catch (error) {
+    console.error("Error in getProducts:", error);
     throw error;
   }
 };
