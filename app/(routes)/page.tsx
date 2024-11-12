@@ -11,8 +11,8 @@ const HomePage = async () => {
     const products = await getProducts({ isFeatured: true });
     const banner = await getBanner("fde47bb6-aa59-44b1-bb9f-85563daaf957");
 
-    console.log("Fetched banner:", banner);
-    console.log("Fetched products:", products);
+    // console.log("Fetched banner:", banner);
+    // console.log("Fetched products:", products);
 
     return (
       <Container>
