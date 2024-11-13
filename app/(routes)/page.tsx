@@ -13,7 +13,7 @@ const HomePage = async () => {
     const bannerIds = [
       "fde47bb6-aa59-44b1-bb9f-85563daaf957",
       "201f8e9f-d90d-4ae4-bdea-256929b7eeca",
-      "abc2c244-5de3-4bab-a511-946a672645d0"
+      "abc2c244-5de3-4bab-a511-946a672645d0",
     ];
     const banners = await Promise.all(bannerIds.map(id => getBanner(id)));
 
